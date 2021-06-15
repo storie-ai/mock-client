@@ -28,6 +28,7 @@ export function Background() {
         height: `${height}px`,
         objectFit: "cover",
         overflow: "hidden",
+        zIndex: -1
       }}
       src={width > height ? HorBGimg : VerBGimg}
       alt="Horizotal background"
