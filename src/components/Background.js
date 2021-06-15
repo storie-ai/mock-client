@@ -13,7 +13,6 @@ export function Background() {
 
   useEffect(() => {
     window.addEventListener("resize", updateWindowSize);
-    console.log(width, height);
     return function cleanup() {
       window.removeEventListener("resize", updateWindowSize);
     };
