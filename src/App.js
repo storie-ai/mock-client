@@ -18,6 +18,16 @@ function App() {
           <Logo />
         </div>
       </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center",
+          width: "100%",
+        }}
+      >
+        <a href="mailto:contact@storie.ai">Contact us</a>
+      </div>
       <Background />
     </div>
   );
