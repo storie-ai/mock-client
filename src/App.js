@@ -5,27 +5,12 @@ import { Logo } from "./components/Logo";
 function App() {
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignContent: "center",
-          width: "100%",
-          height: "90vh",
-        }}
-      >
-        <div style={{ width: "90%" }}>
+      <div className="logo-container">
+        <div className="logo">
           <Logo />
         </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignContent: "center",
-          width: "100%",
-        }}
-      >
+      <div className="link-container">
         <a href="mailto:contact@storie.ai">Contact us</a>
       </div>
       <Background />
