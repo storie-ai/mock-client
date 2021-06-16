@@ -65,6 +65,20 @@ a {
 }
 
 a:hover {
+	animation-duration: 0.8s;
+	animation-name: gradiate;
 	/* Approx. of lower-right of the logo */
-	color: #9a3ae6;
+	color: #4202f9;
 }
+
+@keyframes gradiate {
+	from {
+	  color: #f52324;
+	}
+	40% {
+	  color: #ff7bcf;
+	}
+	to {
+	  color: #4202f9;
+	}
+  }
