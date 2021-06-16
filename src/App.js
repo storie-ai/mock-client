@@ -1,12 +1,10 @@
 import "./App.css";
 import { Background } from "./components/Background";
 import { Logo } from "./components/Logo";
-import Logo2 from "./assets/Logo-Dark.svg";
 
 function App() {
   return (
     <div>
-      {/* <img src={Logo2} alt='Storie.ai logo' /> */}
       <div
         style={{
           display: "flex",
