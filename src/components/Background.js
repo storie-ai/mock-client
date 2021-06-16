@@ -24,14 +24,14 @@ export function Background() {
         position: "absolute",
         top: 0,
         left: 0,
-        width: `${width}px`,
-        height: `${height}px`,
+        width: "100%",
+        height: "100%",
         objectFit: "cover",
         overflow: "hidden",
         zIndex: -1
       }}
       src={width > height ? HorBGimg : VerBGimg}
-      alt="Horizotal background"
+      alt={`${width > height ? "Horizotal" : "Vertical"} background`}
     />
   );
 }
