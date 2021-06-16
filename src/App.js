@@ -6,9 +6,9 @@ function App() {
   return (
     <div>
       <div className="logo-container">
-        <div className="logo">
+        <span className="logo">
           <Logo />
-        </div>
+        </span>
       </div>
       <div className="link-container">
         <a href="mailto:contact@storie.ai">Contact us</a>
