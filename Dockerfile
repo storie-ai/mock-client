@@ -19,4 +19,5 @@ RUN NODE_OPTIONS=--openssl-legacy-provider npm run build
 FROM nginx:1.21.5-alpine as server
 WORKDIR /code
 
+COPY --from=builder /code/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /code/build /usr/share/nginx/html
