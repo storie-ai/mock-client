@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+
+      - name: Setup babashka
+        uses: just-sultanov/setup-babashka@v2
+        with:
+          version: '0.5.1'
+
+      - name: Generate version
+        run: ./scripts/gen_version.bb
+        id: version
+
+      - name: Grab build settings
+        run: ./scripts/build_settings.bb
+        id: settings
+
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ steps.settings.outputs.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+
+      - name: Setup docker
+        uses: docker/setup-buildx-action@v1
+
+      - name: Configure docker to use gcloud
+        run: gcloud auth configure-docker
+
+      - name: Create docker layers cache
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      - name: Build and push docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          target: server
+          tags: |
+            gcr.io/${{ steps.settings.outputs.GCP_PROJECT_ID }}/${{ steps.settings.outputs.SERVICE_NAME }}:latest
+            gcr.io/${{ steps.settings.outputs.GCP_PROJECT_ID }}/${{ steps.settings.outputs.SERVICE_NAME }}:${{ steps.version.outputs.VERSION }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+
+      - name: Tag commit
+        uses: tvdias/github-tagger@v0.0.1
+        with:
+          repo-token: "${{ secrets.PERSONAL_GH_TOKEN }}"
+          tag: ${{ steps.version.outputs.VERSION }}
+
+      # Temp fix
+      # https://github.com/docker/build-push-action/issues/252
+      # https://github.com/moby/buildkit/issues/1896
+      - name: Move docker cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
