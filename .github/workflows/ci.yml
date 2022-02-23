@@ -49,6 +49,8 @@ jobs:
 
       - name: Build and push docker image
         uses: docker/build-push-action@v2
+        env:
+          VERSION: ${{ steps.version.outputs.VERSION }}
         with:
           context: .
           push: true
