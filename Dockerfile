@@ -4,7 +4,7 @@
 FROM nginx:1.21.5-alpine as server
 WORKDIR /
 
-ENV VERSION="needs to be overwritten"
+ARG VERSION="needs to be overwritten"
 
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY public/ /usr/share/nginx/html
