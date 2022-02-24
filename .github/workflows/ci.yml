@@ -55,8 +55,7 @@ jobs:
           context: .
           push: true
           target: server
-          build-args:
-            VERSION: ${{ VERSION }}
+          build-args: VERSION=${{ VERSION }}
           tags: |
             gcr.io/${{ steps.settings.outputs.GCP_PROJECT_ID }}/${{ steps.settings.outputs.SERVICE_NAME }}:latest
             gcr.io/${{ steps.settings.outputs.GCP_PROJECT_ID }}/${{ steps.settings.outputs.SERVICE_NAME }}:${{ steps.version.outputs.VERSION }}
