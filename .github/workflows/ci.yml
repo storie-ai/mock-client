@@ -49,13 +49,11 @@ jobs:
 
       - name: Build and push docker image
         uses: docker/build-push-action@v2
-        env:
-          VERSION: ${{ steps.version.outputs.VERSION }}
         with:
           context: .
           push: true
           target: server
-          build-args: VERSION=${{ VERSION }}
+          build-args: VERSION=${{ steps.version.outputs.VERSION }}
           tags: |
             gcr.io/${{ steps.settings.outputs.GCP_PROJECT_ID }}/${{ steps.settings.outputs.SERVICE_NAME }}:latest
             gcr.io/${{ steps.settings.outputs.GCP_PROJECT_ID }}/${{ steps.settings.outputs.SERVICE_NAME }}:${{ steps.version.outputs.VERSION }}
