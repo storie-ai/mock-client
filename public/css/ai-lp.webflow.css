@@ -215,6 +215,7 @@ p {
   font-size: 28px;
   line-height: 1.2;
   font-weight: 700;
+  text-transform: none;
 }
 
 .button__primary {
@@ -555,8 +556,12 @@ p {
 }
 
 .image {
+  overflow: auto;
+  max-width: 100px;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 
 .fa-icon {
