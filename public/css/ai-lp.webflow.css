@@ -182,6 +182,10 @@ p {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   text-align: center;
 }
 
@@ -274,18 +278,32 @@ p {
   display: flex;
   width: 300px;
   margin-top: 64px;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
 }
 
 .app_link {
   width: 135px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .section {
@@ -556,8 +574,10 @@ p {
 }
 
 .image {
+  position: static;
+  display: block;
   overflow: auto;
-  max-width: 100px;
+  max-width: 150px;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   -o-object-fit: contain;
@@ -734,12 +754,46 @@ p {
   }
 
   .sm_text {
-    left: -20px;
+    position: relative;
+    left: auto;
+    margin-bottom: auto;
+    padding-bottom: 0px;
     font-size: 16px;
   }
 
   .apps_store {
-    margin-top: 24px;
+    position: static;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: auto;
+    width: 100%;
+    margin-top: 30px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -o-object-fit: contain;
+    object-fit: contain;
   }
 
   .section {
@@ -756,6 +810,8 @@ p {
   }
 
   .h1_linear {
+    position: relative;
+    left: -20px;
     font-size: 45px;
   }
 
@@ -798,6 +854,12 @@ p {
     -ms-grid-rows: auto auto;
     grid-template-rows: auto auto;
     text-align: center;
+  }
+
+  .image {
+    overflow: auto;
+    -o-object-fit: fill;
+    object-fit: fill;
   }
 }
 
