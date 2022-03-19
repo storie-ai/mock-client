@@ -1,5 +1,5 @@
 <!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
-<!--  Last Published: Fri Mar 18 2022 06:02:52 GMT+0000 (Coordinated Universal Time)  -->
+<!--  Last Published: Sat Mar 19 2022 04:37:47 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6230bc8e728f8651fe2cbdd6" data-wf-site="6230bc8e728f86854c2cbdd5">
 <head>
   <meta charset="utf-8">
@@ -32,7 +32,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-   @keyframes moveup-2{
+  @keyframes moveup-2{
     0%{
       transform:translateY(-10px) scale(1.005)
     }
@@ -44,10 +44,10 @@
     }
   }
   .image_wrap .full_wd {
-   animation:moveup-2 10s linear  infinite alternate
+    animation:moveup-2 10s linear  infinite alternate
   }
   /*Button*/
-   .button__primary-wrap::before {
+  .button__primary-wrap::before {
     position:absolute;
     left:0;
     top:0;
@@ -63,7 +63,31 @@
     transform:translateX(300%) skewX(20deg); 
   }
   .shadow {
-  mix-blend-mode: screen;
+    mix-blend-mode: screen;
+  }
+  .section::before {
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 45%;
+    background-color: red;
+    border-radius: 50%;
+    left: -15%;
+    top: -25%;
+    filter: blur(100px);
+    opacity: 0.3;
+  }
+  .section::after {
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 45%;
+    background-color: blue;
+    border-radius: 50%;
+    right: -15%;
+    bottom: -25%;
+    filter: blur(100px);
+    opacity: 0.3;
   }
 </style>
     </div>
@@ -75,7 +99,7 @@
         <div class="header__content">
           <div class="heading__block">
             <div class="heading__block-title">
-              <div style="opacity:0" class="sm_text">Your</div>
+              <div style="opacity:0" class="sm_text">The</div>
               <h1 style="-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="h1_linear">AI-powered</h1>
             </div>
             <div class="heading-block-text">
@@ -88,8 +112,8 @@
               </div>
             </a>
             <div class="apps_store">
-              <a href="https://apps.apple.com/app/storie-ai/id1588567150" target="_blank" class="app_link w-inline-block"><img src="images/black.svg" loading="lazy" alt="" class="image"></a>
-              <a href="https://play.google.com/store/apps/details?id=ai.storie.app" target="_blank" class="app_link w-inline-block"><img src="images/google-play-badge.png" loading="lazy" sizes="150px" srcset="images/google-play-badge.png 500w, images/google-play-badge.png 646w" alt="" class="image"></a>
+              <a href="https://apps.apple.com/app/storie-ai/id1588567150" target="_blank" class="app_link w-inline-block"><img src="images/App-Store.svg" loading="lazy" alt="" class="image"></a>
+              <a href="https://play.google.com/store/apps/details?id=ai.storie.app" target="_blank" class="app_link w-inline-block"><img src="images/Google-Play.svg" loading="lazy" alt="" class="image"></a>
             </div>
           </div>
         </div>
@@ -163,7 +187,7 @@
           <div class="footer_l">
             <a href="#" class="w-inline-block"><img src="images/ai_logo.svg" loading="lazy" alt="" class="footer_logo"></a>
             <div class="footer__list">
-              <p class="footer_copy">© 2022 <strong>Storie AI</strong></p>
+              <p class="footer_copy">© 2022 <strong> Storie AI</strong></p>
               <div class="footer__list-links">
                 <a href="https://storieai.notion.site/Terms-of-Service-4f51b72457f949d2933dc62493de70e9" target="_blank" class="footer_link">Terms of Use</a>
                 <a href="https://storieai.notion.site/Privacy-Notice-b96d69bd169b4d7abf7c37480626a6aa" target="_blank" class="footer_link">Privacy Policy</a>
